@@ -87,3 +87,7 @@ EXPOSE 8080
 # Ensure PID 1 reaps zombies and forwards signals.
 ENTRYPOINT ["tini", "--"]
 CMD ["node", "src/server.js"]
+
+# gogcli herunterladen und im System ausführbar machen
+RUN curl -L -o /usr/local/bin/gogcli "https://github.com/steipete/gogcli/releases/latest/download/gogcli-linux-amd64" \
+    && chmod +x /usr/local/bin/gogcli
